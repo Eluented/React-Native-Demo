@@ -1,18 +1,24 @@
-import React from 'react';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import {
+  createStaticNavigation,
+  useNavigation,
+} from '@react-navigation/native';
 
-import {View, Text, StyleSheet, useColorScheme} from 'react-native';
+import { Button } from '@react-navigation/elements';
 
 export default function AppPro(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
-      <Text style={isDarkMode ? styles.darkText : styles.whiteText}>
-        Hello WORLDDD
-      </Text>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Home Screen</Text>
+      <Button onPress={() => navigation.navigate('Details')}>
+        Go to Details
+      </Button>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
